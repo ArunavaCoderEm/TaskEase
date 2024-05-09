@@ -13,7 +13,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="bg-transparent">
+      <nav className="bg-gray-950">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse" onClick={() => {setMenu('home')}}>
             <img src="./todo.png" className="h-8 rounded-full"/>
@@ -49,7 +49,9 @@ export default function Navbar() {
                 <Link to="/features"  className={`block p-2 font-sm rounded-md hover:text-amber-500 transition-all duration-300 ${(menu == 'feature'? `bg-gradient-to-t from-violet-600 to-violet-950 text-white` : `text-white`)}`} onClick={() => {setMenu('feature')}}>Features</Link>
               </li>
               <li>
+                <Link to="/signup"  className={`block p-2 font-sm rounded-md hover:text-amber-500 transition-all duration-300 bg-gradient-to-b from-violet-600 to-violet-950 text-white`} onClick={() => {setMenu('')}}>Sign Up</Link>
               </li>
+              
             </ul>
           </div>
         </div>
