@@ -13,7 +13,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="border-b border-gray-600 bg-blue-1000">
+      <nav className="bg-transparent">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse" onClick={() => {setMenu('home')}}>
             <img src="./todo.png" className="h-8 rounded-full"/>
