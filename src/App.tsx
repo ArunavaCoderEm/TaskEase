@@ -1,6 +1,6 @@
 import Page from "./Page";
 
-export default function App() {
+export default function App() : React.ReactNode {
   return (
     <>
       <Page/>
