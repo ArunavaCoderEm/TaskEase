@@ -6,7 +6,7 @@ import { Todo } from "./Model";
 
 export default function Page() : React.ReactNode {
 
-  const [todos, setTodos] = useState<Todo[]>([]);
+  // const [todos, setTodos] = useState<Todo[]>([]);
 
   return (
     <>
