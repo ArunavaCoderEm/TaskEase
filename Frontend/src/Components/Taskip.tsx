@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import Tododisplay from '../Components/Tododisplay';
 
 export default function Taskip(): React.ReactNode {
 
@@ -25,6 +26,7 @@ export default function Taskip(): React.ReactNode {
   }
 
   return (
+    <>
     <div className="bg-gradient-to-b from-blue-200 to-blue-400 w-4/5 m-auto my-10 shav p-2 rounded-md justify-center">
         <h1 className="text-center bg-clip-text font-extrabold text-3xl bg-gradient-to-r from-blue-400 to-blue-700 text-transparent tracking-20">TaskEase</h1>
         <form onSubmit={handleSubmit} className="m-auto my-5 justify-center align-middle items-center">
@@ -57,5 +59,23 @@ export default function Taskip(): React.ReactNode {
           </button>
         </form>
     </div>
+    <div>
+      <h2 className="text-center font-semibold text-3xl text-white my-5">Your Tasks Here</h2>
+      {! datasetRef.current.length && 
+            <h2 className="text-white text-center">No Tasks Added Yet</h2>
+      }
+    <div className="m-3 grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-3">
+      <>
+          {datasetRef.current && datasetRef.current.map((taskData:any, index:number) => (
+            <>
+            <div key={index}>
+              <Tododisplay head={taskData.input} desc={taskData.task} prio={taskData.val} />
+            </div>
+            </>
+          ))}
+      </>
+      </div>
+    </div>
+    </>
   )
 }
