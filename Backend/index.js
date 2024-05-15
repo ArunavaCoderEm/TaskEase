@@ -2,9 +2,11 @@ const express = require('express');
 const server = express();
 const authchecker = require("./Route/authentication");
 const process = require("./Route/route");
+const cors = require('cors');
 var mongocon = require('./mongocon');
 
 server.use(express.json())
+server.use(cors());       
 
 const PORT = 7070;
 

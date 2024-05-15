@@ -19,7 +19,7 @@ route.post("/signup",  async (req, res) => {
         })
     }
     catch(e) {
-        res.status(400).json({message : " User signed up before "});
+        res.status(200).json({message : " User signed up before "});
     }
 })
 
@@ -31,21 +31,21 @@ route.post("/login",  async (req, res) => {
             email : req.body.email
         });
         if(! userthere) {
-            res.status(400).json({message : " Create One Account First "});  
+            res.status(200).json({message : " Create One Account First "});  
         }
         const passthere = 
         
         hasher.compareSync(req.body.password, userthere.password)
        
         if(! passthere) {
-            res.status(400).json({message : " Passwords did'nt match "});
+            res.status(200).json({message : " Passwords didn't match "});
         }
 
         const {password, ...details} = userthere._doc;
         res.status(200).json({ details });
     }
     catch(e) {
-        res.status(400).json({message : " User signed up before "});
+        res.status(200).json({message : " User signed up before "});
     }
 })
 

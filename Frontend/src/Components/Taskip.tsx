@@ -7,7 +7,7 @@ export default function Taskip(): React.ReactNode {
   const [input , setInput] = useState<string>("");
   const [task , setDesc] = useState<string>("");
   const [val , setval] = useState<number>(0);
-  const [modal , setmodal] = useState<boolean>(true);
+  const [modal , setmodal] = useState<boolean>(false);
   const [data , setData] = useState<any[]>([]);
   const [initialized, setInitialized] = useState<boolean>(false);
 

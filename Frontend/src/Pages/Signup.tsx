@@ -1,6 +1,8 @@
 
 import  { useState } from 'react'
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function Signup() {
     const [pass,setpass] = useState(false);
@@ -9,9 +11,31 @@ export default function Signup() {
     const [passw,setpassw] = useState("");
     const [name,setname] = useState("");
 
+    const navi = useNavigate();
 
     const togpass = () => {
         setpass(!pass);
+    }
+
+
+    const postdata = async (em:string, pas:string, usn:string) => {
+        const data = {
+            email : em,
+            password : pas,
+            username : usn
+        }
+        await axios.post("http://localhost:7070/users/reglog/signup",data).then((res:any) => {
+            console.log(res);
+            navi("/login");
+        });
+    }
+
+    const handlesubmit = (e:any) => {
+        e.preventDefault();
+        postdata(email,passw,name);
+        setemail("");
+        setpassw("");
+        setname("");
     }
 
 
@@ -21,7 +45,7 @@ export default function Signup() {
     <div className="">
     <div className='max-w-[25em] rounded-sm bg-gradient-to-b from-blue-600 to-blue-900 items-center justify-center align-middle mt-10 mx-auto p-2 shav h-auto'>
         <h1 className='text-center text-3xl pt-4 font-bold text-white'>Sign Up</h1>
-        <form className='m-2 px-3'>
+        <form className='m-2 px-3' onSubmit={handlesubmit}>
             <h2 className='text-xl font-thin my-3 text-white'>Email :</h2>
             <input type='name' className='w-full placeholder-green-600 text-green-600 border-2 border-solid focus:border-green-600 focus:ring-0 focus:outline-none h-10 text-center  rounded-md' placeholder='example@gmail.com' onChange={(e) => setemail(e.target.value)} required/>
             <h2 className='text-xl font-thin my-3 text-white'>Username :</h2>
