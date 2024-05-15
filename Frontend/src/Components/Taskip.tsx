@@ -2,7 +2,8 @@ import { useState } from "react";
 
 export default function Taskip() : React.ReactNode {
 
-  const [input , setInput] = useState<any>("");
+  const [input , setInput] = useState<string>("");
+  const [val , setval] = useState<number>(1);
 
   const handleSubmit = (e : any) : any  => {
     e.preventDefault();
@@ -29,9 +30,15 @@ export default function Taskip() : React.ReactNode {
           <h2 className="text-center font-semibold text-md my-2 tracking-2">Priority Of Task</h2>
           <select className="h-10 text-white p-2 bg-gradient-to-b from-violet-200 to-violet-600 shab font-semibold px-3 m-1 rounded-md block mx-auto">
             <option className="bg-violet-400 text-violet-900 font-semibold" disabled>Choose Below</option>
-            <option className="bg-violet-400 text-violet-900 font-semibold">Low Priority</option>
-            <option className="bg-violet-400 text-violet-900 font-semibold">Medium Priority</option>
-            <option className="bg-violet-400 text-violet-900 font-semibold">High Priority</option>
+            <option onClick={() => {
+              setval(1)
+            }} className="bg-violet-400 text-violet-900 font-semibold">Low Priority</option>
+            <option  onClick={() => {
+              setval(2)
+            }} className="bg-violet-400 text-violet-900 font-semibold">Medium Priority</option>
+            <option onClick={() => {
+              setval(3)
+            }} className="bg-violet-400 text-violet-900 font-semibold">High Priority</option>
           </select>
         </form>
     </div>
