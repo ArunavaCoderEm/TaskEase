@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Tododisplay from '../Components/Tododisplay';
 
 export default function Taskip(): React.ReactNode {
@@ -6,6 +6,7 @@ export default function Taskip(): React.ReactNode {
   const [input , setInput] = useState<string>("");
   const [task , setDesc] = useState<string>("");
   const [val , setval] = useState<number>(0);
+  const [data , setData] = useState<any[]>([]);
   const [initialized, setInitialized] = useState<boolean>(false);
 
   const datasetRef = useRef<any>([]);
@@ -15,13 +16,22 @@ export default function Taskip(): React.ReactNode {
     const newTask = { input, task, val }; 
     if (!initialized) {
       datasetRef.current.push(newTask);
+      setData(datasetRef.current)
       setInitialized(true);
     } else {
       datasetRef.current = [...datasetRef.current, newTask]; 
+      setData(datasetRef.current)
     }
     setInput("");
     setDesc("");
     setval(0);
+  }
+
+  const deletetask = (id:number) => {
+    datasetRef.current.splice(id, 1);
+    datasetRef.current = [...datasetRef.current]; 
+    setData(datasetRef.current);
+    console.log(datasetRef.current);
   }
 
   return (
@@ -66,11 +76,12 @@ export default function Taskip(): React.ReactNode {
       }
     <div className="lg:m-5 md:m-3 sm:m-1 grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-3">
       <>
-      {datasetRef.current && datasetRef.current.map((taskData:any, index:number) => {
+      {datasetRef.current && data.map((taskData:any, index:number) => {
+        console.log(index)
           return (
             <>
             <div key={index} className="m-2"> 
-              <Tododisplay head={taskData.input} desc={taskData.task} val={taskData.val} />
+              <Tododisplay head={taskData.input} desc={taskData.task} val={taskData.val} id={index} whadel ={deletetask} />
             </div>
             </>
           );
