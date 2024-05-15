@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Home from "./Pages/Home";
-import Signup from "./Components/Signup"
-import Login from "./Components/Login"
+import Signup from "./Pages/Signup"
+import Login from "./Pages/Login"
 
 export default function Page() : React.ReactNode {
 

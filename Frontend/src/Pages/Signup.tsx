@@ -18,7 +18,7 @@ export default function Signup() {
 
   return (
     <>
-    <div className="flex">
+    <div className="">
     <div className='max-w-[25em] rounded-sm bg-gradient-to-b from-blue-600 to-blue-900 items-center justify-center align-middle mt-10 mx-auto p-2 shav h-auto'>
         <h1 className='text-center text-3xl pt-4 font-bold text-white'>Sign Up</h1>
         <form className='m-2 px-3'>
@@ -39,8 +39,8 @@ export default function Signup() {
             <button type='submit' className='mx-auto bg-blue-700 transition-all duration-300 hover:bg-blue-600 p-3 text-white rounded-md mt-3'>Create Account</button>
             <hr className='h-1 bg-black my-3' />
         </form>
+        <h2 className='p-1 text-center text-white'>Already have an account ? <Link to='/login' className='font-semibold text-sky-400 ml-2'>Log-In</Link></h2>
     </div>
-    
     </div>
     </>
   )
