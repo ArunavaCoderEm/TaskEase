@@ -14,7 +14,7 @@ export default function Navbar () : React.ReactNode {
       <nav className="bg-gradient-to-b from-blue-500 to-blue-800">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link to="/" className="flex ml-10 items-center space-x-3 rtl:space-x-reverse" onClick={() => {setMenu('home')}}>
-            <img src="./todo.png" className="h-8 shab rounded-full"/>
+            <img src="./todo0.png" className="h-8 shab rounded-full"/>
             <span className="self-center text-xl font-mono font-semibold whitespace-nowrap hov dark:text-white"><span className='text-blue-300 font-serif font-bold'>T</span>ask<span className='text-blue-300 font-serif font-bold'>E</span>ase</span>
           </Link>
           <div className="flex md:order-2">
