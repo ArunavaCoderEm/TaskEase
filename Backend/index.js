@@ -1,6 +1,7 @@
 const express = require('express');
 const server = express();
 const authchecker = require("./Route/authentication");
+const process = require("./Route/route");
 var mongocon = require('./mongocon');
 
 server.use(express.json())
@@ -19,7 +20,10 @@ mongocon();
 
 server.use(express.static("public"));
 server.use(express.urlencoded({extended:true}));
+
+
 server.use("/users/reglog",authchecker);
+server.use("/users/data",process);
 
 
 server.listen(PORT, () => {
