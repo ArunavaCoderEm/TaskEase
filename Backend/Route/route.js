@@ -87,4 +87,16 @@ route.delete('/tododelete/:id' , async (req, res) => {
 
 })
 
+
+route.get("/todoget/:id", async (req, res) => {
+    try {
+        const iddata = await modelSchema
+        .find({existuser : req.params.id});
+        res.status(200).json({ iddata })
+    }
+    catch (e) {
+        res.status(400).json({ message : "Nothing found ", error : e }) 
+    }
+})
+
 module.exports = route;
