@@ -17,3 +17,7 @@ body {
 .ch:hover path{
     fill: red;
 }
+
+.tsha {
+    text-shadow: 0 0 12px rgba(1, 65, 144, 0.729);
+}

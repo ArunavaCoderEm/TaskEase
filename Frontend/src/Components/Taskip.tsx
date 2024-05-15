@@ -59,9 +59,10 @@ export default function Taskip(): React.ReactNode {
         </form>
     </div>
     <div>
-      <h2 className="text-center font-semibold text-3xl text-white my-5">Your Tasks Here</h2>
+      <h2 className="text-center font-extrabold text-4xl bg-clip-text bg-gradient-to-r text-transparent tsha from-blue-200 to-blue-700 my-5">Your Tasks Here</h2>
+      <hr className="w-64 mx-auto h-1 mb-10 rounded border-0 bg-gradient-to-l from-blue-600 to-blue-200" />
       {! datasetRef.current.length && 
-          <h2 className="text-white text-center">No Tasks Added Yet</h2>
+          <h2 className="text-white text-center text-xl">⛔ No Tasks Added Yet ⛔</h2>
       }
     <div className="lg:m-5 md:m-3 sm:m-1 grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-3">
       <>
