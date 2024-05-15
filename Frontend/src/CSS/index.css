@@ -7,9 +7,13 @@ body {
 }
 
 .shav {
-    box-shadow: 0 0 20px rgb(199, 91, 239);
+    box-shadow: 0 0 20px rgb(91, 93, 239);
 }
 
 .shab {
     box-shadow: 0 0 20px #000;
+}
+
+.ch:hover path{
+    fill: red;
 }

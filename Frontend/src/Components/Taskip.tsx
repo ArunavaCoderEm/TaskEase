@@ -22,7 +22,6 @@ export default function Taskip(): React.ReactNode {
     setInput("");
     setDesc("");
     setval(0);
-    console.log(datasetRef.current);
   }
 
   return (
@@ -37,7 +36,7 @@ export default function Taskip(): React.ReactNode {
             <textarea 
             value={task}
             onChange={(e) => setDesc(e.target.value)}
-            className="block mt-5 text-blue-700 font-semibold text-xl mx-auto shab ring-0 outline-none border-none text-center placeholder:text-blue-700 p-3 rounded-md sm:w-full lg:w-3/5 md:w-4/5" placeholder="Enter Task Description Here ...">
+            className="block mt-5 text-blue-700 font-semibold text-xl mx-auto shab ring-0 outline-none border-none text-center placeholder:text-blue-700 p-3 rounded-md sm:w-full lg:w-3/5 md:w-4/5" placeholder="Enter Task Description Here ..." required>
             </textarea>
             <h2 className="text-center font-semibold text-md my-2 tracking-2">Priority Of Task</h2>
             <select value={val} onChange={(e) => setval(Number(e.target.value))} className="h-10 text-white p-2 bg-gradient-to-b from-blue-200 to-blue-600 shab font-semibold px-3 m-1 rounded-md block mx-auto">
@@ -62,17 +61,19 @@ export default function Taskip(): React.ReactNode {
     <div>
       <h2 className="text-center font-semibold text-3xl text-white my-5">Your Tasks Here</h2>
       {! datasetRef.current.length && 
-            <h2 className="text-white text-center">No Tasks Added Yet</h2>
+          <h2 className="text-white text-center">No Tasks Added Yet</h2>
       }
-    <div className="m-3 grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-3">
+    <div className="lg:m-5 md:m-3 sm:m-1 grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-3">
       <>
-          {datasetRef.current && datasetRef.current.map((taskData:any, index:number) => (
+      {datasetRef.current && datasetRef.current.map((taskData:any, index:number) => {
+          return (
             <>
-            <div key={index}>
-              <Tododisplay head={taskData.input} desc={taskData.task} prio={taskData.val} />
+            <div key={index} className="m-2"> 
+              <Tododisplay head={taskData.input} desc={taskData.task} val={taskData.val} />
             </div>
             </>
-          ))}
+          );
+        })}
       </>
       </div>
     </div>
