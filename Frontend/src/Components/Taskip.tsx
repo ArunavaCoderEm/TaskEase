@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function Taskip() : React.ReactNode {
 
   const [input , setInput] = useState<string>("");
-  const [val , setval] = useState<number>(1);
+  const [val , setval] = useState<number>(0);
 
   const handleSubmit = (e : any) : any  => {
     e.preventDefault();
@@ -15,7 +15,7 @@ export default function Taskip() : React.ReactNode {
         <form onSubmit={handleSubmit} className="m-auto my-5 justify-center align-middle items-center">
             <input
             value = {input} onChange={(e) => setInput(e.target.value)}
-            className="block text-violet-700 font-semibold text-xl mx-auto shab ring-0 outline-none border-none text-center placeholder:text-violet-700 p-3 rounded-md sm:w-full lg:w-3/5 md:w-4/5" placeholder="Enter Task Here ..." type="text" />
+            className="block text-violet-700 font-semibold text-xl mx-auto shab ring-0 outline-none border-none text-center placeholder:text-violet-700 p-3 rounded-md sm:w-full lg:w-3/5 md:w-4/5" placeholder="Enter Task Here ..." type="text" required />
             <button type="submit" className="relative m-5 items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-indigo-600 mx-auto block transition-all duration-150 ease-in-out hover:pl-10 rounded-md hover:pr-6 shav bg-violet-200 group">
             <span className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-gradient-to-b
             from-violet-500 to-violet-800 group-hover:h-full"></span>
