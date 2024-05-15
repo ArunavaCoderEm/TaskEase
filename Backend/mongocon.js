@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
+const mongo = require('mongoose');
 require('dotenv/config'); 
 
 async function mongocon (req, res) {
     try {
-        await mongoose.connect(process.env.MONGO_CONN_STRING);
+        await mongo.connect(process.env.MONGO_CONN_STRING);
         console.log('DB connection established');
     } catch (e) {
         res.status(400).json({
