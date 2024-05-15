@@ -1,11 +1,13 @@
 import React, { useState, useRef } from "react";
 import Tododisplay from '../Components/Tododisplay';
+import Updatemodal from "../Components/Updatemodal"
 
 export default function Taskip(): React.ReactNode {
 
   const [input , setInput] = useState<string>("");
   const [task , setDesc] = useState<string>("");
   const [val , setval] = useState<number>(0);
+  const [modal , setmodal] = useState<boolean>(true);
   const [data , setData] = useState<any[]>([]);
   const [initialized, setInitialized] = useState<boolean>(false);
 
@@ -32,6 +34,10 @@ export default function Taskip(): React.ReactNode {
     datasetRef.current = [...datasetRef.current]; 
     setData(datasetRef.current);
     console.log(datasetRef.current);
+  }
+
+  const togmodal = () => {
+    setmodal( ! modal)
   }
 
   return (
@@ -76,12 +82,12 @@ export default function Taskip(): React.ReactNode {
       }
     <div className="lg:m-5 md:m-3 sm:m-1 grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-3">
       <>
-      {datasetRef.current && data.map((taskData:any, index:number) => {
+      {datasetRef.current && ! modal && data.map((taskData:any, index:number) => {
         console.log(index)
           return (
             <>
             <div key={index} className="m-2"> 
-              <Tododisplay head={taskData.input} desc={taskData.task} val={taskData.val} id={index} whadel ={deletetask} />
+              <Tododisplay head={taskData.input} desc={taskData.task} val={taskData.val} id={index} whadel ={deletetask} update={togmodal} />
             </div>
             </>
           );
@@ -89,6 +95,13 @@ export default function Taskip(): React.ReactNode {
       </>
       </div>
     </div>
+    {modal && 
+    <div className="todoup">
+      <>
+        <Updatemodal update={togmodal} />
+      </>
+    </div>
+    }
     </>
   )
 }
