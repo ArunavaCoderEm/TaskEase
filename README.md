@@ -48,30 +48,42 @@ List of the key features of the project here.
    ```
 2. Reach the directory
 
-  ```
+  ```sh
   cd TaskEase
   ```
 
 #### You will be having two folders
 
-For Frontend 
+For Frontend <br />
 3. Reach Frontend
-  ```
+  ```sh
     cd Frontend
   ```
 
-For Backend 
+For Backend  <br />
 4. Reach Frontend
-  ```
+  ```sh
     cd Backend
   ```
 
-5. In Frontend 
-```
+5. In Frontend  <br />
+```sh
   npm install
 ```
 
-6. In Backend 
-```
+6. In Backend  <br />
+```sh
   npm init
+```
+
+### After the installations
+1. For Frontend
+  ```sh
+  npm run dev
+```
+2. For Backend
+  ```sh
+  1. npm i nodemon
+  2. npm run dev
+
 ```
