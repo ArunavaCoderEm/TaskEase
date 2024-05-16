@@ -5,12 +5,13 @@ const process = require("./Route/route");
 const cors = require('cors');
 var mongocon = require('./mongocon');
 
-server.use(express.json())
+const PORT = 7070;
 
+require('dotenv/config');
+
+server.use(express.json())
 const allowedOrigins = [
     "https://taskeaseserver.vercel.app",
-    "http://localhost:5173",
-    "http://localhost:7070",
     "https://taskease-kappa.vercel.app"
 ];
 
@@ -26,20 +27,10 @@ const corsOptions = {
     credentials: true
 };
 
-server.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
-server.options("*", cors(corsOptions));
+app.options("*", cors(corsOptions));
 
-server.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
-    next();
-});
-
-const PORT = 7070;
-
-require('dotenv/config');
 
 
 server.get('/',(req,res) => {
