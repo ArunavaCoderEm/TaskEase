@@ -10,10 +10,11 @@ server.use(express.json())
 const allowedOrigins = [
     "https://taskeaseserver.vercel.app",
     "http://localhost:5173",
+    "http://localhost:7070",
     "https://taskease-kappa.vercel.app"
 ];
 
-server.use(cors({
+const corsOptions = {
     origin: function (origin, callback) {
         if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
@@ -23,15 +24,18 @@ server.use(cors({
     },
     methods: ['POST', 'DELETE', 'GET', 'PUT', 'PATCH'],
     credentials: true
-}));
+};
 
-server.options("", cors({
-    origin: allowedOrigins,
-    methods: ['POST', 'DELETE', 'GET', 'PUT', 'PATCH'],
-    credentials: true
-}));
+server.use(cors(corsOptions));
 
+server.options("*", cors(corsOptions));
 
+server.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+    next();
+});
 
 const PORT = 7070;
 
