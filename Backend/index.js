@@ -13,13 +13,19 @@ mongocon();
 
 server.use(express.json());
 
-server.use(cors({
-    origin: ["https://taskeaseserver.vercel.app", "http://localhost:5173", "https://taskease-kappa.vercel.app"],
-    methods: ['POST', 'DELETE', 'GET', 'PUT', 'PATCH'],
-    credentials: true
-}));
-
-server.options("*", cors());
+server.use(
+    cors({
+      origin: corsOrigin,
+      methods: "GET,HEAD,PUT,PATCH,POST,OPTIONS,DELETE",
+      credentials: true,
+    })
+  );
+  
+  server.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', "https://taskease-kappa.vercel.app");
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+  });
 
 server.get('/', (req, res) => {
     res.send("Server started");

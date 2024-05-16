@@ -8,7 +8,7 @@ route.post("/signup",  async (req, res) => {
         const password = req.body.password;
         const username = req.body.username;
         const hashpass = hasher.hashSync(password);
-        const senduser = new userexists({
+        const senduser = new userexists({ 
             email : email,
             password : hashpass,
             username : username
