@@ -1,5 +1,5 @@
 # TaskEase
-# React + TypeScript + Vite
+# Vite React + TypeScript + Tailwind
 
 Brief project description goes here.
 
