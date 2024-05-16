@@ -2,7 +2,7 @@ export default function Tododisplay({head, desc, val, id, whadel, update, update
   return (
     <>
     {(val == 1 || val == 0) && 
-    <div className={`max-w-sm p-6 bg-gradient-to-b from-blue-300 to-blue-500 rounded-lg`}>
+    <div className={`max-w-sm p-6 bg-gradient-to-b from-blue-300 to-blue-500 rounded-lg shav`}>
         <h1 className="mb-2 text-3xl font-bold overflow-hidden tracking-tight text-gray-900 dark:text-white">{head}</h1>
         <p className="mb-3 font-semibold text-blue-700 overflow-hidden text-xl">{desc}</p>
         <div className="icons grid grid-cols-2 mt-4">
@@ -17,7 +17,7 @@ export default function Tododisplay({head, desc, val, id, whadel, update, update
     </div>
     }
     {(val == 2) && 
-    <div className={`max-w-sm p-6 bg-gradient-to-b from-green-300 to-green-500 rounded-lg`}>
+    <div className={`max-w-sm p-6 bg-gradient-to-b shav from-green-300 to-green-500 rounded-lg`}>
         <h1 className="mb-2 text-3xl font-bold overflow-hidden tracking-tight text-gray-900 dark:text-white">{head}</h1>
         <p className="mb-3 font-semibold text-green-700 text-xl overflow-hidden">{desc}</p>
         <div className="icons grid grid-cols-2 mt-4">
@@ -32,7 +32,7 @@ export default function Tododisplay({head, desc, val, id, whadel, update, update
     </div>
     }
     {(val == 3) && 
-    <div className={`max-w-sm p-6 bg-gradient-to-b from-red-300 to-red-500 rounded-lg`}>
+    <div className={`max-w-sm p-6 bg-gradient-to-b shav from-red-300 to-red-500 rounded-lg`}>
         <h1 className="mb-2 text-3xl font-bold overflow-hidden tracking-tight text-gray-900 dark:text-white">{head}</h1>
         <p className="mb-3 font-semibold text-red-700 text-xl overflow-hidden">{desc}</p>
         <div className="icons grid grid-cols-2 mt-4">

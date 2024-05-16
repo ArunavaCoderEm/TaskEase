@@ -3,6 +3,8 @@ import Navbar from "./Components/Navbar";
 import Home from "./Pages/Home";
 import Signup from "./Pages/Signup"
 import Login from "./Pages/Login"
+import About from "./Pages/About";
+import Features from "./Pages/Features";
 
 export default function Page() : React.ReactNode {
 
@@ -13,7 +15,8 @@ export default function Page() : React.ReactNode {
         <Route path='/' element={<Home/>} />
         <Route path='/signup' element={<Signup/>} />
         <Route path='/login' element={<Login/>} />
-        
+        <Route path='/about' element={<About/>} />
+        <Route path='/features' element={<Features/>} />
       </Routes>
     </>
   )
