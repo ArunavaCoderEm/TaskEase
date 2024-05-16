@@ -20,7 +20,7 @@ export default function Updatemodal({update, updatearr}:any) {
       tododesc : de,
       todoprio : va
     }
-    await axios.put(`/users/data/todochange/${updatearr._id}`, data).then((res:any) => {
+    await axios.put(`https://taskeaseserver.vercel.app/users/data/todochange/${updatearr._id}`, data).then((res:any) => {
         console.log(res);
     })
   }
