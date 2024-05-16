@@ -24,7 +24,7 @@ export default function Signup() {
             password : pas,
             username : usn
         }
-        await axios.post("/signup",data).then((res:any) => {
+        await axios.post("https://taskeaseserver.vercel.app/users/reglog/signup",data).then((res:any) => {
             console.log(res);
             setTimeout(() => {
                 navi('/login')

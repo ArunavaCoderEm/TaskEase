@@ -31,14 +31,14 @@ export default function Taskip(): React.ReactNode {
         todoprio : p,
         id : id
     }
-    await axios.post("/todoadd",data).then((res:any) => {
+    await axios.post("https://taskeaseserver.vercel.app/users/data/todoadd",data).then((res:any) => {
         console.log(res);
     });
   }
 
   const getdata = async () => {
     if(id) {
-      await axios.get(`/todoget/${id}`).then((res:any) => {
+      await axios.get(`https://taskeaseserver.vercel.app/users/data/todoget/${id}`).then((res:any) => {
         setData(res.data.iddata)
       });
     }
@@ -87,7 +87,7 @@ export default function Taskip(): React.ReactNode {
 
   const deletetask = async (deid:any) => {
 
-    await axios.delete(`/tododelete/${deid}`, {
+    await axios.delete(`https://taskeaseserver.vercel.app/users/data/tododelete/${deid}`, {
       data : {id : id}
     }).then((res:any) => {
       console.log(res)
