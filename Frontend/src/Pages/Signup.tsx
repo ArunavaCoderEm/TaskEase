@@ -26,7 +26,9 @@ export default function Signup() {
         }
         await axios.post("http://localhost:7070/users/reglog/signup",data).then((res:any) => {
             console.log(res);
-            navi("/login");
+            setTimeout(() => {
+                navi('/login')
+              }, 1000);
         });
     }
 

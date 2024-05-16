@@ -3,6 +3,7 @@ import Tododisplay from '../Components/Tododisplay';
 import Updatemodal from "../Components/Updatemodal"
 import axios from "axios";
 import Model from '../Model'
+import Alert from "./Alert";
   
 let id:string | null = sessionStorage.getItem("id");
 let toupdate: Model[] = []; 
@@ -14,8 +15,11 @@ export default function Taskip(): React.ReactNode {
   const [task , setDesc] = useState<string>("");
   const [val , setval] = useState<number>(0);
   const [modal , setmodal] = useState<boolean>(false);
+  const [alert , setalert] = useState<boolean>(false);
   const [data , setData] = useState<any[]>([]);
   const [initialized, setInitialized] = useState<boolean>(false);
+  const [altit, setaltit] = useState<string>("");
+  const [aldesc, setaldesc] = useState<string>("");
 
 
   const datasetRef = useRef<any>([]);
@@ -39,8 +43,13 @@ export default function Taskip(): React.ReactNode {
       });
     }
     else {
-      // alert added
+      setTimeout(() => {
+        setaltit("Try sign in again")
+        setaldesc("Data Can't be fetched")
+        setalert(true)
+      }, 2000);
     }
+    setalert(false);
   }
 
 
@@ -57,11 +66,20 @@ export default function Taskip(): React.ReactNode {
     }
     if(id) {
       posttask(input, task, val);
-      // alert added
+      setTimeout(() => {
+        setaltit("Task Added")
+        setaldesc("Successfully")
+        setalert(true)
+      }, 2000);
     }
     else {
-      // alert not added login
+      setTimeout(() => {
+        setaltit("Try sign in")
+        setaldesc("Task not added")
+        setalert(true)
+      }, 2000);
     }
+    setalert(false);
     setInput("");
     setDesc("");
     setval(0);
@@ -73,8 +91,13 @@ export default function Taskip(): React.ReactNode {
       data : {id : id}
     }).then((res:any) => {
       console.log(res)
-      // alert added
+      setTimeout(() => {
+        setaltit("Task Deleted")
+        setaldesc("Successfully")
+        setalert(true)
+      }, 2000);
     });
+    setalert(false);
   }
 
   const togmodal = () => {
@@ -84,6 +107,7 @@ export default function Taskip(): React.ReactNode {
   const updatefunc =  (value:any) => {
     toupdate = data[value];
   }
+
 
   useEffect(() => {
     getdata();
@@ -126,6 +150,9 @@ export default function Taskip(): React.ReactNode {
     <div>
       <h2 className="text-center font-extrabold text-4xl bg-clip-text bg-gradient-to-r text-transparent tsha from-blue-200 to-blue-700 my-5">Your Tasks Here</h2>
       <hr className="w-64 mx-auto h-1 mb-10 rounded border-0 bg-gradient-to-l from-blue-600 to-blue-200" />
+      { alert && 
+         <Alert title={altit} desc={aldesc}/>
+      }
       {! data.length && 
           <h2 className="text-white text-center text-xl">⛔ No Tasks Added Yet ⛔</h2>
       }

@@ -22,11 +22,13 @@ export default function signup() {
       const data = {
           email : em,
           password : pas,
-      }
+      } 
       await axios.post("http://localhost:7070/users/reglog/login",data).then((res:any) => {
           sessionStorage.setItem("id", res.data.details._id)
           disp(existData.login());
-          navi("/");
+          setTimeout(() => {
+            navi('/')
+          }, 1000);
       }); 
   }
 
