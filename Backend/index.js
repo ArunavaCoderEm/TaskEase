@@ -9,7 +9,7 @@ server.use(express.json())
 server.use(cors());       
 
 server.use(cors({
-    origin:  ["https://to-do-backend-pretisha.vercel.app/", "http://localhost:3000" ,"https://taskease-kappa.vercel.app/"],
+    origin:  ["https://to-do-backend-pretisha.vercel.app/", "http://localhost:5173" ,"https://taskease-kappa.vercel.app/"],
     methods: ['POST', 'DELETE', 'GET', 'PUT', 'PATCH'],
     credentials: true
 }));
