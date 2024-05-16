@@ -11,13 +11,7 @@ require('dotenv/config');
 
 server.use(express.json())
 
-server.use(
-    cors({
-      origin: "https://taskease-kappa.vercel.app",
-      methods: "GET,HEAD,PUT,PATCH,POST,OPTIONS,DELETE",
-      credentials: true,
-    })
-  );
+server.use(cors());
 
 server.get('/',(req,res) => {
     res.send("Server started");
