@@ -14,7 +14,7 @@
       {
         "src": "/users/*",
         "methods": [
-          "POST"
+          "POST", "DELETE", "PUT", "HEAD", "OPTIONS", "PATCH"
         ],
         "headers": {
           "Access-Control-Allow-Origin": "*",
