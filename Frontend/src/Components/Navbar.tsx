@@ -12,8 +12,10 @@ export default function Navbar () : React.ReactNode {
 
   const logged:boolean = useSelector((state:any) => state.logged);
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [menu,setMenu] = useState('home');
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [menu,setMenu] = useState<string>('home');
+
+  const usern: string | null = (sessionStorage.getItem("name"));
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -69,10 +71,13 @@ export default function Navbar () : React.ReactNode {
             </>
           }
           { logged &&
+          <>
+          <h2 className='text-center text-xl lg:ml-8 bg-blue-900 px-2 py-1 mt-1 mx-auto text-white rounded-md'>{usern}</h2>
           <button 
           className='p-2 mx-auto lg:mx-10 bg-gradient-to-b from-blue-400 px-2 sm:mx-10 shab to-blue-600 block rounded-md text-center font-thin text-white' onClick={handleLogout}>
             Log out
           </button>
+          </>
           }
           </div>
         </div>

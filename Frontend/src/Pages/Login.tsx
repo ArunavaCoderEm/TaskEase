@@ -26,6 +26,7 @@ export default function signup() {
       await axios.post("https://taskeaseserver.vercel.app/users/reglog/login",data).then((res:any) => {
         console.log(res);
           sessionStorage.setItem("id", res.data.details._id)
+          sessionStorage.setItem("name", res.data.details.username)
           disp(existData.login());
           setTimeout(() => {
             navi('/')
@@ -41,7 +42,7 @@ export default function signup() {
     }
 
   return (
-    <>
+    <div className='min-h-[75vh]'>
          <div className='max-w-[25em] rounded-sm bg-gradient-to-b from-blue-600 to-blue-900 items-center justify-center align-middle mt-10 mx-auto p-2 sha'>
         <h1 className='text-center text-3xl pt-4 font-bold text-white'>Log In</h1>
         <h1 className='text-center text-2xl pt-4 font-bold text-white'>Welcome Back !</h1>
@@ -63,6 +64,6 @@ export default function signup() {
         
             <h2 className='p-1 text-center text-white'>Don't have an account ? <Link to='/signup' className='font-semibold text-sky-400 ml-2'>Sign-Up</Link></h2>
     </div>
-    </>
+    </div>
   )
 }
