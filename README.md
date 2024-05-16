@@ -88,6 +88,9 @@ For Backend  <br />
 ```
 
 ## Screenshots
+![Screenshot 2024-05-16 231504](https://github.com/ArunavaCoderEm/TaskEase/assets/121813676/5d6d21ae-aaad-4f96-a2a8-2eb800d8c4dd)
+![Screenshot 2024-05-16 230337](https://github.com/ArunavaCoderEm/TaskEase/assets/121813676/1bff3ef0-02ca-41d8-a248-2ccd39942a5b)
+![Screenshot 2024-05-16 231556](https://github.com/ArunavaCoderEm/TaskEase/assets/121813676/86fcc537-1565-4c3d-81de-c6695c753514)
 
 
 ## Made By
