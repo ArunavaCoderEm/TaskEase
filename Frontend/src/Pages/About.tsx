@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 export default function About() {
   return (
-  <section className="text-white body-font">
+  <section className="text-white body-font"> 
     <h1 className='text-center bg-clip-text font-extrabold text-3xl bg-gradient-to-r from-blue-400 to-blue-700 text-transparent tracking-20 mt-10'>About Me</h1>
     <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
       <img className="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded-full shav" alt="hero" src="./me.png"/>
