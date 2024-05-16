@@ -24,6 +24,7 @@ export default function signup() {
           password : pas,
       } 
       await axios.post("https://taskeaseserver.vercel.app/users/reglog/login",data).then((res:any) => {
+        console.log(res);
           sessionStorage.setItem("id", res.data.details._id)
           disp(existData.login());
           setTimeout(() => {

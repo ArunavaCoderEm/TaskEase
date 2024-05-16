@@ -87,7 +87,7 @@ export default function Taskip(): React.ReactNode {
   }
 
   const deletetask = async (deid:any) => {
-    setaltit("Task Deleted")
+    setaltit("Task Completed")
     setaldesc("Successfully")
     setalert(true)
     await axios.delete(`https://taskeaseserver.vercel.app/users/data/tododelete/${deid}`, {
