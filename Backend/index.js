@@ -10,6 +10,7 @@ const PORT = 7070;
 require('dotenv/config');
 
 server.use(express.json())
+
 const allowedOrigins = [
     "https://taskeaseserver.vercel.app",
     "https://taskease-kappa.vercel.app"
@@ -27,9 +28,9 @@ const corsOptions = {
     credentials: true
 };
 
-app.use(cors(corsOptions));
+server.use(cors(corsOptions));
 
-app.options("*", cors(corsOptions));
+server.options("*", cors(corsOptions));
 
 
 
