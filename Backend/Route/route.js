@@ -3,15 +3,15 @@ const userexists = require("../Schema_Req/Newuser");
 const modelSchema = require('../Schema_Req/Schema');
 
 route.post('/todoadd' , async (req, res) => {
-    try {    
+    try {     
         const todohead = req.body.todohead;
         const tododesc = req.body.tododesc;
         const todoprio = req.body.todoprio;
-        const email = req.body.email;
+        const id = req.body.id;
 
         const userthereexist = 
         
-        await userexists.findOne({ email });
+        await userexists.findById( id );
         
         if(userthereexist) {
             const data = new modelSchema({
@@ -65,11 +65,12 @@ route.put('/todochange/:id' , async (req, res) => {
 route.delete('/tododelete/:id' , async (req, res) => {
     try {    
 
-        const email = req.body.email;
+        const{ id } = req.body;
 
         const userthereexist = 
         
-        await userexists.findOneAndUpdate({ email },
+        await userexists.findByIdAndUpdate(
+            id,
             {$pull : {userlist : req.params.id}}
         );
         

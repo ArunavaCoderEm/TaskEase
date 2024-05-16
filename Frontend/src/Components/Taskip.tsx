@@ -1,6 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Tododisplay from '../Components/Tododisplay';
 import Updatemodal from "../Components/Updatemodal"
+import axios from "axios";
+
+  
+let id:string | null = sessionStorage.getItem("id");
 
 export default function Taskip(): React.ReactNode {
 
@@ -11,7 +15,27 @@ export default function Taskip(): React.ReactNode {
   const [data , setData] = useState<any[]>([]);
   const [initialized, setInitialized] = useState<boolean>(false);
 
+
   const datasetRef = useRef<any>([]);
+
+  const posttask = async (h:string, d:string, p:number) => {
+    const data = {
+        todohead : h,
+        tododesc : d,
+        todoprio : p,
+        id : id
+    }
+    await axios.post("http://localhost:7070/users/data/todoadd",data).then((res:any) => {
+        console.log(res);
+    });
+  }
+
+  const getdata = async () => {
+    await axios.get(`http://localhost:7070/users/data/todoget/${id}`).then((res:any) => {
+      setData(res.data.iddata)
+    });
+  }
+
 
   const handleSubmit = (e: any): any => {
     e.preventDefault();
@@ -24,21 +48,35 @@ export default function Taskip(): React.ReactNode {
       datasetRef.current = [...datasetRef.current, newTask]; 
       setData(datasetRef.current)
     }
+    if(id) {
+      posttask(input, task, val);
+      // alert added
+    }
+    else {
+      // alert not added login
+    }
     setInput("");
     setDesc("");
     setval(0);
   }
 
-  const deletetask = (id:number) => {
-    datasetRef.current.splice(id, 1);
-    datasetRef.current = [...datasetRef.current]; 
-    setData(datasetRef.current);
-    console.log(datasetRef.current);
+  const deletetask = async (deid:any) => {
+
+    await axios.delete(`http://localhost:7070/users/data/tododelete/${deid}`, {
+      data : {id : id}
+    }).then((res:any) => {
+      console.log(res)
+      // alert added
+    });
   }
 
   const togmodal = () => {
     setmodal( ! modal)
   }
+
+  useEffect(() => {
+    getdata();
+  },[handleSubmit])
 
   return (
     <>
@@ -77,17 +115,16 @@ export default function Taskip(): React.ReactNode {
     <div>
       <h2 className="text-center font-extrabold text-4xl bg-clip-text bg-gradient-to-r text-transparent tsha from-blue-200 to-blue-700 my-5">Your Tasks Here</h2>
       <hr className="w-64 mx-auto h-1 mb-10 rounded border-0 bg-gradient-to-l from-blue-600 to-blue-200" />
-      {! datasetRef.current.length && 
+      {! data.length && 
           <h2 className="text-white text-center text-xl">⛔ No Tasks Added Yet ⛔</h2>
       }
     <div className="lg:m-5 md:m-3 sm:m-1 grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-3">
       <>
       {datasetRef.current && ! modal && data.map((taskData:any, index:number) => {
-        console.log(index)
           return (
             <>
             <div key={index} className="m-2"> 
-              <Tododisplay head={taskData.input} desc={taskData.task} val={taskData.val} id={index} whadel ={deletetask} update={togmodal} />
+              <Tododisplay head={taskData.todohead} desc={taskData.tododesc} val={taskData.todoprio} id={taskData._id} whadel ={deletetask} update={togmodal} />
             </div>
             </>
           );
