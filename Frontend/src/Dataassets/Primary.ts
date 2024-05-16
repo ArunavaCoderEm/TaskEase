@@ -6,6 +6,9 @@ const existSlice = createSlice({
   reducers : {
     login(state:any) {
         state.logged = true;
+    },
+    logout(state:any) {
+        state.logged = false;
     }
   }
 })

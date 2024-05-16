@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { existData } from '../Dataassets/Primary';
 
 export default function Navbar () : React.ReactNode {
+
+  const disp = useDispatch();
 
   const logged:boolean = useSelector((state:any) => state.logged);
 
@@ -12,6 +16,14 @@ export default function Navbar () : React.ReactNode {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const handleLogout = () => {
+    setMenu("home");  
+    sessionStorage.clear();
+    disp(existData.logout());
+  };
+
+
 
   return (
     <>
@@ -52,9 +64,10 @@ export default function Navbar () : React.ReactNode {
             </>
           }
           { logged &&
-          <Link to='/login' className='p-2 lg:mx-10 bg-gradient-to-b from-blue-400 px-2 sm:mx-10 shab to-blue-600 block rounded-md text-center font-thin text-white' onClick={() => {setMenu('none')}}>
+          <button 
+          className='p-2 lg:mx-10 bg-gradient-to-b from-blue-400 px-2 sm:mx-10 shab to-blue-600 block rounded-md text-center font-thin text-white' onClick={handleLogout}>
             Log out
-          </Link>
+          </button>
           }
           </div>
         </div>
