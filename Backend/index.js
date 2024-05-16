@@ -6,19 +6,31 @@ const cors = require('cors');
 var mongocon = require('./mongocon');
 
 server.use(express.json())
-// server.use(cors());       
+
+const allowedOrigins = [
+    "https://taskeaseserver.vercel.app",
+    "http://localhost:5173",
+    "https://taskease-kappa.vercel.app"
+];
 
 server.use(cors({
-    origin:  ["https://taskeaseserver.vercel.app/", "http://localhost:5173" ,"https://taskease-kappa.vercel.app"],
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
     methods: ['POST', 'DELETE', 'GET', 'PUT', 'PATCH'],
     credentials: true
 }));
 
-server.options("" ,cors({
-    origin:  ["https://taskeaseserver.vercel.app/", "http://localhost:5173" , "https://taskease-kappa.vercel.app"],
+server.options("", cors({
+    origin: allowedOrigins,
     methods: ['POST', 'DELETE', 'GET', 'PUT', 'PATCH'],
     credentials: true
-}) )
+}));
+
 
 
 const PORT = 7070;
