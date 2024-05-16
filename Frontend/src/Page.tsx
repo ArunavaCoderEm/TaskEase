@@ -5,6 +5,7 @@ import Signup from "./Pages/Signup"
 import Login from "./Pages/Login"
 import About from "./Pages/About";
 import Features from "./Pages/Features";
+import Footer from "./Components/Footer";
 
 export default function Page() : React.ReactNode {
 
@@ -18,6 +19,7 @@ export default function Page() : React.ReactNode {
         <Route path='/about' element={<About/>} />
         <Route path='/features' element={<Features/>} />
       </Routes>
+      <Footer/>
     </>
   )
 }
