@@ -8,7 +8,7 @@ export default function App() : React.ReactNode {
   const disp = useDispatch();
   useEffect(() => {
     const sessionid:any = sessionStorage.getItem("id");
-    if(sessionid) disp(existData.login());
+    if(sessionid) disp(existData.login()); 
   },[])
 
   return (
