@@ -7,7 +7,7 @@ export default defineConfig({
   ],
   server: {
     proxy: {
-      '/api': {
+      '/users': {
         target: 'https://taskeaseserver.vercel.app/', 
         changeOrigin: true,
         rewrite: path => path.replace(/^\/users/, '')
