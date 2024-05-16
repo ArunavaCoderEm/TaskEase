@@ -1,7 +1,7 @@
 const express = require('express');
 const server = express();
 const authchecker = require("./Route/authentication");
-const process = require("./Route/route");
+const propath = require("./Route/route");
 const cors = require('cors');
 const mongocon = require('./mongocon');
 
@@ -32,7 +32,7 @@ server.get('/', (req, res) => {
 });
  
 server.use ("/users/reglog" , authchecker )
-server.use ("/users/data" , process )
+server.use ("/users/data" , propath )
 
 server.use(express.static("public"));
 server.use(express.urlencoded({ extended: true }));
