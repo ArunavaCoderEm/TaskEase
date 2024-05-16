@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export default function Navbar () : React.ReactNode {
+
+  const logged:boolean = useSelector((state:any) => state.logged);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [menu,setMenu] = useState('home');
 
@@ -38,12 +42,20 @@ export default function Navbar () : React.ReactNode {
                 <Link to="/features"  className={`block p-2 font-sm rounded-md hover:text-blue-300 transition-all duration-300 ${(menu == 'feature'? `bg-gradient-to-t from-blue-500 to-blue-800 text-white shab` : `text-white`)}`} onClick={() => {setMenu('feature')}}>Features</Link>
               </li>              
             </ul>
+          {! logged && <>
           <Link to='/signup' className='p-2 bg-gradient-to-b from-blue-400 px-2 shab to-blue-600 block right-0 mx-10 rounded-md text-center font-thin text-white' onClick={() => {setMenu('none')}}>
-            sign in
+            Sign in
           </Link>
           <Link to='/login' className='p-2 bg-gradient-to-b from-blue-400 px-2 sm:mx-10 lg:mx-0 shab to-blue-600 block right-0 rounded-md text-center font-thin text-white' onClick={() => {setMenu('none')}}>
-            log in
+            Log in
           </Link>
+            </>
+          }
+          { logged &&
+          <Link to='/login' className='p-2 lg:mx-10 bg-gradient-to-b from-blue-400 px-2 sm:mx-10 shab to-blue-600 block rounded-md text-center font-thin text-white' onClick={() => {setMenu('none')}}>
+            Log out
+          </Link>
+          }
           </div>
         </div>
       </nav>

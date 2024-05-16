@@ -2,8 +2,13 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux';
+import { existData } from '../Dataassets/Primary';
 
 export default function signup() {
+
+    const disp = useDispatch();
+
 
     const[email,setemail] = useState<string>("")
     const[passw,setpassw] = useState<string>("")
@@ -19,7 +24,8 @@ export default function signup() {
           password : pas,
       }
       await axios.post("http://localhost:7070/users/reglog/login",data).then((res:any) => {
-          console.log(res.data);
+          sessionStorage.setItem("id", res.data.details._id)
+          disp(existData.login());
           navi("/");
       }); 
   }
