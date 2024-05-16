@@ -1,34 +1,77 @@
+# TaskEase
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Brief project description goes here.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [About](#about)
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-## Expanding the ESLint configuration
+## About
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+TaskEase is a comprehensive todo manager website designed to streamline your task management process effortlessly. With its intuitive user interface and robust features, TaskEase empowers users to organize their tasks efficiently, ensuring productivity and clarity in their daily workflow.
 
-- Configure the top-level `parserOptions` property like this:
+## Features
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+List of the key features of the project here.
+
+- Has a priority task feature.
+- Task can be updated anyhow anytime.
+- Stores your tasks in a proper manner.
+
+## Getting Started
+
+### Prerequisites
+
+- Node 
+- Express
+- Vite + React
+- Tailwind
+- Typescript
+- MongoDB
+- npm 
+
+### Installation
+
+1. Clone the repository:
+
+   ```sh
+   git clone https://github.com/Arunavacoderem/TaskEase.git
+
+   ```
+2. Reach the directory
+
+  ```
+  cd TaskEase
+  ```
+
+#### You will be having two folders
+
+For Frontend 
+3. Reach Frontend
+  ```
+    cd Frontend
+  ```
+
+For Backend 
+4. Reach Frontend
+  ```
+    cd Backend
+  ```
+
+5. In Frontend 
+```
+  npm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-
-
-godard06mongo
-godard
+6. In Backend 
+```
+  npm init
+```

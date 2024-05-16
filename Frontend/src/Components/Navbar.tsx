@@ -1,10 +1,12 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { existData } from '../Dataassets/Primary';
 
 export default function Navbar () : React.ReactNode {
+
+  const navi = useNavigate();
 
   const disp = useDispatch();
 
@@ -21,6 +23,9 @@ export default function Navbar () : React.ReactNode {
     setMenu("home");  
     sessionStorage.clear();
     disp(existData.logout());
+    setTimeout(() => {
+      navi('/login');
+    }, 1000);
   };
 
 
