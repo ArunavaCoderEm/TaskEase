@@ -11,7 +11,6 @@ Brief project description goes here.
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Screenshots](#screenshots)
-- [Contributing](#contributing)
 
 ## About
 
