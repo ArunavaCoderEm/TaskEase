@@ -6,7 +6,7 @@ const cors = require('cors');
 var mongocon = require('./mongocon');
 
 server.use(express.json())
-server.use(cors());       
+// server.use(cors());       
 
 server.use(cors({
     origin:  ["https://taskeaseserver.vercel.app/", "http://localhost:5173" ,"https://taskease-kappa.vercel.app/"],
