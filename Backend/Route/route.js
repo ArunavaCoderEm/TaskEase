@@ -39,22 +39,15 @@ route.post('/todoadd' , async (req, res) => {
 
 route.put('/todochange/:id' , async (req, res) => {
     try {    
-        const todohead = req.body.todohead;
-        const tododesc = req.body.tododesc;
-        const todoprio = req.body.todoprio;
-        const email = req.body.email;
+    
+    const todohead = req.body.todohead;
+    const tododesc = req.body.tododesc;
+    const todoprio = req.body.todoprio;
 
-        const userthereexist = 
-        
-        await userexists.findOne({ email });
-        
-        if(userthereexist) {
-            const data = await modelSchema.findByIdAndUpdate(req.params.id,{todohead, tododesc})
-            data.save().then(() => res.status(200).json({ message : "Task changed", data }));
-        }
-        else {
-            res.status(400).json({ message : "No user found to be changed" })
-        }
+
+    const data = await modelSchema.findByIdAndUpdate(req.params.id,{todohead, tododesc, todoprio})
+    data.save().then(() => res.status(200).json({ message : "Task changed", data }));
+
     }
     catch (e) {
         res.status(400).json({ message : "Nothing found ", error : e })

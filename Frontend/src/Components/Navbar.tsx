@@ -65,7 +65,7 @@ export default function Navbar () : React.ReactNode {
           }
           { logged &&
           <button 
-          className='p-2 lg:mx-10 bg-gradient-to-b from-blue-400 px-2 sm:mx-10 shab to-blue-600 block rounded-md text-center font-thin text-white' onClick={handleLogout}>
+          className='p-2 mx-auto lg:mx-10 bg-gradient-to-b from-blue-400 px-2 sm:mx-10 shab to-blue-600 block rounded-md text-center font-thin text-white' onClick={handleLogout}>
             Log out
           </button>
           }

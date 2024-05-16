@@ -2,9 +2,11 @@ import React, { useState, useRef, useEffect } from "react";
 import Tododisplay from '../Components/Tododisplay';
 import Updatemodal from "../Components/Updatemodal"
 import axios from "axios";
-
+import Model from '../Model'
   
 let id:string | null = sessionStorage.getItem("id");
+let toupdate: Model[] = []; 
+
 
 export default function Taskip(): React.ReactNode {
 
@@ -31,9 +33,14 @@ export default function Taskip(): React.ReactNode {
   }
 
   const getdata = async () => {
-    await axios.get(`http://localhost:7070/users/data/todoget/${id}`).then((res:any) => {
-      setData(res.data.iddata)
-    });
+    if(id) {
+      await axios.get(`http://localhost:7070/users/data/todoget/${id}`).then((res:any) => {
+        setData(res.data.iddata)
+      });
+    }
+    else {
+      // alert added
+    }
   }
 
 
@@ -74,9 +81,13 @@ export default function Taskip(): React.ReactNode {
     setmodal( ! modal)
   }
 
+  const updatefunc =  (value:any) => {
+    toupdate = data[value];
+  }
+
   useEffect(() => {
     getdata();
-  },[handleSubmit])
+  },[handleSubmit, updatefunc])
 
   return (
     <>
@@ -124,7 +135,7 @@ export default function Taskip(): React.ReactNode {
           return (
             <>
             <div key={index} className="m-2"> 
-              <Tododisplay head={taskData.todohead} desc={taskData.tododesc} val={taskData.todoprio} id={taskData._id} whadel ={deletetask} update={togmodal} />
+              <Tododisplay head={taskData.todohead} desc={taskData.tododesc} val={taskData.todoprio} id={taskData._id} whadel ={deletetask} update={togmodal} updateId={index} updatecard={updatefunc} />
             </div>
             </>
           );
@@ -135,7 +146,7 @@ export default function Taskip(): React.ReactNode {
     {modal && 
     <div className="todoup">
       <>
-        <Updatemodal update={togmodal} />
+        <Updatemodal update={togmodal} updatearr = {toupdate} />
       </>
     </div>
     }
