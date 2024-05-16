@@ -24,7 +24,7 @@ server.options("*", cors());
 server.get('/', (req, res) => {
     res.send("Server started");
 });
-
+ 
 server.use ("/users/reglog" , authchecker )
 server.use ("/users/data" , process )
 
