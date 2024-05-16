@@ -15,7 +15,7 @@ server.use(express.json());
 
 server.use(
     cors({
-      origin: corsOrigin,
+      origin: "https://taskease-kappa.vercel.app",
       methods: "GET,HEAD,PUT,PATCH,POST,OPTIONS,DELETE",
       credentials: true,
     })
