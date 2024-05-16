@@ -24,7 +24,7 @@ export default function Signup() {
             password : pas,
             username : usn
         }
-        await axios.post("/users/reglog/signup",data).then((res:any) => {
+        await axios.post("http://localhost:7070/users/reglog/signup",data).then((res:any) => {
             console.log(res);
             setTimeout(() => {
                 navi('/login')

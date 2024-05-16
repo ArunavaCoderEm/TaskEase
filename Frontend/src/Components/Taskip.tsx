@@ -31,14 +31,14 @@ export default function Taskip(): React.ReactNode {
         todoprio : p,
         id : id
     }
-    await axios.post("/users/data/todoadd",data).then((res:any) => {
+    await axios.post("http://localhost:7070/users/data/todoadd",data).then((res:any) => {
         console.log(res);
     });
   }
 
   const getdata = async () => {
     if(id) {
-      await axios.get(`/users/data/todoget/${id}`).then((res:any) => {
+      await axios.get(`http://localhost:7070/users/data/todoget/${id}`).then((res:any) => {
         setData(res.data.iddata)
       });
     }
@@ -87,7 +87,7 @@ export default function Taskip(): React.ReactNode {
 
   const deletetask = async (deid:any) => {
 
-    await axios.delete(`/users/data/tododelete/${deid}`, {
+    await axios.delete(`http://localhost:7070/users/data/tododelete/${deid}`, {
       data : {id : id}
     }).then((res:any) => {
       console.log(res)
