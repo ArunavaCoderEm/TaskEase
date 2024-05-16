@@ -10,9 +10,8 @@ Brief project description goes here.
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-- [Usage](#usage)
+- [Screenshots](#screenshots)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## About
 
@@ -87,3 +86,9 @@ For Backend  <br />
   2. npm run dev
 
 ```
+
+## Screenshots
+
+
+## Made By
+Arunava Dutta && 💙
