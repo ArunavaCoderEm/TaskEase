@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import axios from "axios";
+import Alert from "./Alert";
 
 
 export default function Updatemodal({update, updatearr}:any) {
@@ -7,6 +8,7 @@ export default function Updatemodal({update, updatearr}:any) {
   const[input , setInput] = useState<string>("");
   const[desc , setDesc] = useState<string>("");
   const[val , setval] = useState<number>(0);
+  const[al , setal] = useState<boolean>(false);
 
   useEffect(() => {
     setInput(updatearr.todohead);
@@ -26,9 +28,13 @@ export default function Updatemodal({update, updatearr}:any) {
   }
 
   const handlesubmit =  (e:any) => {
+    setal(true);
     e.preventDefault();
     updatedatahere(input, desc, val);
-    update();
+    setTimeout(() => {
+      setal(false)
+      update();
+    }, 2000);
   } 
 
 
@@ -68,6 +74,9 @@ export default function Updatemodal({update, updatearr}:any) {
             <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">Update Task</span>
           </button>
         </form>
+        {al && 
+          <Alert title={"Task Updated"} desc={"Successfully"}/>
+        }
     </div>
   )
 }

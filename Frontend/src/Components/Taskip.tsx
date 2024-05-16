@@ -43,13 +43,13 @@ export default function Taskip(): React.ReactNode {
       });
     }
     else {
+      setaltit("Try sign in again")
+      setaldesc("Data Can't be fetched")
+      setalert(true)
       setTimeout(() => {
-        setaltit("Try sign in again")
-        setaldesc("Data Can't be fetched")
-        setalert(true)
+        setalert(false);
       }, 2000);
     }
-    setalert(false);
   }
 
 
@@ -66,38 +66,39 @@ export default function Taskip(): React.ReactNode {
     }
     if(id) {
       posttask(input, task, val);
+      setaltit("Task Added")
+      setaldesc("Successfully")
+      setalert(true)
       setTimeout(() => {
-        setaltit("Task Added")
-        setaldesc("Successfully")
-        setalert(true)
+        setalert(false);
       }, 2000);
     }
     else {
+      setalert(true)
+      setaltit("Try sign in")
+      setaldesc("Task not added")
       setTimeout(() => {
-        setaltit("Try sign in")
-        setaldesc("Task not added")
-        setalert(true)
+        setalert(false);
       }, 2000);
     }
-    setalert(false);
     setInput("");
     setDesc("");
     setval(0);
   }
 
   const deletetask = async (deid:any) => {
-
+    setaltit("Task Deleted")
+    setaldesc("Successfully")
+    setalert(true)
     await axios.delete(`https://taskeaseserver.vercel.app/users/data/tododelete/${deid}`, {
       data : {id : id}
     }).then((res:any) => {
       console.log(res)
+      
       setTimeout(() => {
-        setaltit("Task Deleted")
-        setaldesc("Successfully")
-        setalert(true)
+        setalert(false);
       }, 2000);
     });
-    setalert(false);
   }
 
   const togmodal = () => {
