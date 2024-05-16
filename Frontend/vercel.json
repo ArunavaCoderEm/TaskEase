@@ -1,0 +1,12 @@
+{
+    "routes": [
+      {
+        "src": "/users/(.*)",
+        "dest": "https://taskeaseserver.vercel.app",
+        "headers": {
+          "x-vercel-deployment-url": "vercel-vite-react-app.vercel.app"
+        }
+      }
+    ]
+  }
+  
