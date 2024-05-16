@@ -25,8 +25,8 @@ server.get('/', (req, res) => {
     res.send("Server started");
 });
 
-app.use ("/users/reglog" , authchecker )
-app.use ("/users/data" , process )
+server.use ("/users/reglog" , authchecker )
+server.use ("/users/data" , process )
 
 server.use(express.static("public"));
 server.use(express.urlencoded({ extended: true }));
