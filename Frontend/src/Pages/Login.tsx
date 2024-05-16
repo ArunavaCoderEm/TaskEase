@@ -18,7 +18,7 @@ export default function signup() {
         setpass(! pass);
     }
 
-    const postdatal = async (em:string, pas:string) => {
+    const postdatal = async (em:string, pas:string) => { 
       const data = {
           email : em,
           password : pas,
