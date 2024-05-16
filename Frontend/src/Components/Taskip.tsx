@@ -112,7 +112,7 @@ export default function Taskip(): React.ReactNode {
 
   useEffect(() => {
     getdata();
-  },[handleSubmit, updatefunc])
+  },[handleSubmit, updatefunc, posttask])
 
   return (
     <>
