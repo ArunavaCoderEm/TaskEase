@@ -11,28 +11,13 @@ require('dotenv/config');
 
 server.use(express.json())
 
-const allowedOrigins = [
-    "https://taskeaseserver.vercel.app",
-    "https://taskease-kappa.vercel.app"
-];
-
-const corsOptions = {
-    origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error("Not allowed by CORS"));
-        }
-    },
-    methods: ['POST', 'DELETE', 'GET', 'PUT', 'PATCH'],
-    credentials: true
-};
-
-server.use(cors(corsOptions));
-
-server.options("*", cors(corsOptions));
-
-
+server.use(
+    cors({
+      origin: "https://taskease-kappa.vercel.app",
+      methods: "GET,HEAD,PUT,PATCH,POST,OPTIONS,DELETE",
+      credentials: true,
+    })
+  );
 
 server.get('/',(req,res) => {
     res.send("Server started");
