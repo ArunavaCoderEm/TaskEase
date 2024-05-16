@@ -9,19 +9,8 @@
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "/"
-      },
-      {
-        "src": "/users/*",
-        "methods": [
-          "POST", "DELETE", "PUT", "HEAD", "OPTIONS", "PATCH", "GET", "HEAD"
-        ],
-        "headers": {
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "GET,HEAD,PUT,PATCH,POST,OPTIONS,DELETE",
-          "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
-          "Access-Control-Allow-Credentials": "true"
-        }
+        "dest": "/",
+        "methods": ["GET","HEAD","PUT","PATCH","POST","OPTIONS","DELETE"]
       }
     ]
   }

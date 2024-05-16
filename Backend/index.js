@@ -7,26 +7,20 @@ const mongocon = require('./mongocon');
 
 const PORT = 7070;
 
+const corsConfig = {
+    origin : "*",
+    credentials : true,
+    methods : ["GET","HEAD","PUT","PATCH","POST","OPTIONS","DELETE"]
+}
+
 require('dotenv/config');
 
 mongocon();
 
 server.use(express.json());
 
-server.use(
-    cors({
-      origin: "https://taskease-kappa.vercel.app",
-      methods: "GET,HEAD,PUT,PATCH,POST,OPTIONS,DELETE",
-      credentials: true,
-    })
-  );
+server.use(cors(corsConfig));
   
-  server.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', "https://taskease-kappa.vercel.app");
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    next();
-  });
-
 server.get('/', (req, res) => {
     res.send("Server started");
 });
