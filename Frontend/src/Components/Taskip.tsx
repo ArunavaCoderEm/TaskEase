@@ -162,7 +162,7 @@ export default function Taskip(): React.ReactNode {
       {datasetRef.current && ! modal && data.map((taskData:any, index:number) => {
           return (
             <>
-            <div key={index} className="m-2"> 
+            <div key={index} className="m-2 mx-auto w-80"> 
               <Tododisplay head={taskData.todohead} desc={taskData.tododesc} val={taskData.todoprio} id={taskData._id} whadel ={deletetask} update={togmodal} updateId={index} updatecard={updatefunc} />
             </div>
             </>
