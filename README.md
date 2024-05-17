@@ -1,7 +1,7 @@
 # TaskEase
 # Vite React + TypeScript + Tailwind
 
-(For some reason my vercel is not deploying pushes so I created a new account ... so here you might see vercel not deploying but in another account it's getting deployed perfectly.)
+(For some reason my vercel is not deploying pushes so I created a new account ... so here you might see vercel not deploying but in another account it's getting deployed perfectly. Amd will fix main account later.)
 
 Brief project description goes here.
 
