@@ -1,7 +1,7 @@
 # TaskEase
 # Vite React + TypeScript + Tailwind
 
-(I have my GH code ready but a lot of pushes did not show up in vercel might fix that later till then it's almost ready)
+(For some reason my vercel is not deploying pushes so I created a new account ... so here you might see vercel not deploying but in another account it's getting deployed perfectly.)
 
 Brief project description goes here.
 
