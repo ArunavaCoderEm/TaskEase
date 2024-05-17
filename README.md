@@ -1,6 +1,8 @@
 # TaskEase
 # Vite React + TypeScript + Tailwind
 
+(I have my GH code ready bast a lot of pushes did not show up in vercel might fix that later)
+
 Brief project description goes here.
 
 ## Table of Contents
