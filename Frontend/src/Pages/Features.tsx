@@ -25,12 +25,19 @@ export default function Features() {
                     <div className="rounded-lg h-64 overflow-hidden">
                     <img alt="content" className="object-cover object-center h-full w-full" src="./ss3.png"/>
                     </div>
-                    <h2 className="text-xl font-medium title-font text-gray-900 mt-5">Feature 3</h2>
-                    <p className="text-base leading-relaxed mt-2">Even after creation, you can adjust task headers, descriptions, and priority orders as needed. This flexibility allows for fine-tuning and updating tasks to better align with changing requirements or priorities, enhancing overall efficiency and organization. </p>
+                    <h2 className="text-xl font-medium title-font text-gray-300 mt-5">Feature 3</h2>
+                    <p className="text-base leading-relaxed mt-2 text-slate-500">Even after creation, you can adjust task headers, descriptions, and priority orders as needed. This flexibility allows for fine-tuning and updating tasks to better align with changing requirements or priorities, enhancing overall efficiency and organization. </p>
                 </div>
                 </div>
             </div>
             <p className="text-base lg:m-5 sm:m-2 leading-relaxed text-center">You also get a signup and login feature that saves your creation, deletion, updation on your tasks by you in the databse.</p>
+
+            <h1 className="text-white font-bold text-center my-3">Coming Soon</h1>
+            <hr className="w-60 mx-auto bg-slate-500" />
+            <ul className="m-5 my-5 text-slate-500">
+                <li className="my-3 sm:text-left lg:text-center">1. Date feature will be added.</li>
+                <li className="sm:text-left lg:text-center">2. Mail notifications with respect to date will be added soon.</li>
+            </ul>
         </section>
     </>
   )

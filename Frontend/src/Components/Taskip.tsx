@@ -116,7 +116,7 @@ export default function Taskip(): React.ReactNode {
 
   return (
     <>
-    <div className="bg-gradient-to-b from-blue-200 to-blue-400 w-4/5 m-auto my-10 shav p-2 rounded-md justify-center">
+    <div className="bg-gradient-to-b from-blue-200 to-blue-400 mb-[22px] w-4/5 m-auto my-10 shav p-2 rounded-md justify-center">
         <h1 className="text-center bg-clip-text font-extrabold text-3xl bg-gradient-to-r from-blue-400 to-blue-700 text-transparent tracking-20">TaskEase</h1>
         <form onSubmit={handleSubmit} className="m-auto my-5 justify-center align-middle items-center">
             <input
