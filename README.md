@@ -10,7 +10,7 @@ Brief project description goes here.
 - [About](#about)
 - [Features](#features)
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
+  - [Prerequisites](#prerequisites) 
   - [Installation](#installation)
 - [Screenshots](#screenshots)
 
