@@ -13,7 +13,7 @@ export default function About() {
         <p className="mb-8 leading-relaxed text-left">I am strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick. My journey in development has been enriched by my exploration of modern frameworks like <span className='ml-[2px] text-blue-500 font-semibold mr-1'>Vite + React</span>,<span className='ml-[2px] text-blue-500 font-semibold'>Typescript</span>, <span className='ml-[2px] text-blue-500 font-semibold'>Tailwind CSS</span>, and <span className='ml-[2px] text-blue-500 font-semibold'>Bootstrap</span>. These tools not only enhance my productivity but also empower me to bring my ideas to life in a more efficient and effective manner. Working with <span className='ml-[2px] text-blue-500 font-semibold'>APIs</span> has also become so fun for me.</p>
         </div>
         <div className="flex justify-center">
-          <Link to="https://godard.vercel.app/" target='_blank' className="inline-flex text-black bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg">Portfolio</Link>
+          <Link to="https://meard.vercel.app/" target='_blank' className="inline-flex text-black bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg">Portfolio</Link>
           <Link to="https://github.com/ArunavaCoderEm" target='_blank' className="ml-4 inline-flex text-blue-400 bg-white border-0 py-2 px-6 transition-all duration-300 focus:outline-none hover:bg-gray-500 rounded text-lg">Gtihub</Link>
         </div>
       </div>
