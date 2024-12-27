@@ -19,7 +19,7 @@ mongocon();
 
 server.use(express.json());
 
-server.use(cors(corsConfig));
+server.use(cors());
   
 server.get('/', (req, res) => {
     res.send("Server started");
